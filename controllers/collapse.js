@@ -9,6 +9,7 @@ for (i = 0; i < coll.length; i++) {
       content.style.display = "none";
     } else {
       content.style.display = "block";
+      content.style.animation = "fadeIn 5s";
     }
   });
 }

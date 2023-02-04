@@ -6,6 +6,10 @@ button {
     font-size: 26px;
 }
 
+.boton-diff {
+    color:aqua !important;
+}
+
 .boton{
     font-size:16pt;
     height:50px;
