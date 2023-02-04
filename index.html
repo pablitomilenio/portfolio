@@ -1,17 +1,26 @@
 <doctype html!>
 <head>
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/collapse.css">
 </head>
 <body>
 Herzlich willkommen auf meiner Portfolioseite www.escaida.net <br>
 Hier finden Sie informationen zu meinem beruflichen Werdegang und zu meinen Softwareprojekten<br>
 Mit Betaetigung der verschiedenen Buttons koennen Sie gern die entsprechenden Sektionen einblenden<br><hr><br><br>
-    <button class="boton">
+    <button class="boton collapsible">
         Beruflicher Werdegang
-    </button><hr>
-    <button class="boton">
+    </button>
+    <div class="content">
+        <p>Lorem ipsum...</p>
+    </div> 
+    <hr>
+    <button class="boton collapsible">
         Programmierung PHP MySQL Javascript
-    </button><hr>
+    </button>
+    <div class="content">
+        <p>Lorem ipsum...</p>
+    </div> 
+    <hr>
     <button class="boton">
         Zeugnisse Programmierung
     </button><hr>
@@ -23,4 +32,5 @@ Mit Betaetigung der verschiedenen Buttons koennen Sie gern die entsprechenden Se
     </button><hr>
     <br><br><br><br><br><br><br><br>
 </body>
+<script src="/controllers/collapse.js"></script>
 </html>
