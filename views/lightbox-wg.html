@@ -10,17 +10,27 @@
 
 <div class="row">
   <div class="column">
-    <img src="/img/werdegang/hgbeude.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+    <img src="/img/werdegang/tu-berlin-postcard.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
   </div>
   <div class="column">
     <img src="/img/werdegang/utworld.jpeg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
   </div>
   <div class="column">
-    <img src="img_mountains.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    <img src="/img/werdegang/Gasturbine.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
   </div>
   <div class="column">
-    <img src="img_lights.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+    <img src="/img/werdegang/wtc2.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
   </div>
+  <div class="column">
+    <img src="/img/werdegang/telefunken2.jpg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="/img/werdegang/uttower.jpg" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="/img/werdegang/hvb-large.jpg" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+  </div>
+
 </div>
 
 <div id="myModal" class="modal">
@@ -29,7 +39,7 @@
 
     <div class="mySlides">
       <div class="numbertext">1 / 4</div>
-      <img src="/img/werdegang/hgbeude.jpg" style="width:100%">
+      <img src="/img/werdegang/tu-berlin-postcard.png" style="width:100%">
     </div>
 
     <div class="mySlides">
@@ -39,14 +49,33 @@
 
     <div class="mySlides">
       <div class="numbertext">3 / 4</div>
-      <img src="img_mountains_wide.jpg" style="width:100%">
+      <img src="/img/werdegang/Gasturbine.jpg" style="width:100%">
+    </div>
+    
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="/img/werdegang/wtc2.jpg" style="width:100%">
+    </div>
+
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 4</div>
+      <img src="/img/werdegang/telefunken2.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 4</div>
+      <img src="/img/werdegang/uttower.jpg" style="width:100%">
     </div>
     
     <div class="mySlides">
-      <div class="numbertext">4 / 4</div>
-      <img src="img_lights_wide.jpg" style="width:100%">
+      <div class="numbertext">6 / 4</div>
+      <img src="/img/werdegang/hvb-large.jpg" style="width:100%">
     </div>
-    
+
+
+
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
@@ -56,58 +85,31 @@
 
 
     <div class="column">
-      <img class="demo cursor" src="/img/werdegang/hgbeude.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+      <img class="demo cursor" src="/img/werdegang/tu-berlin-postcard.png" style="width:100%" onclick="currentSlide(1)" alt="Hauptgebaeude der Technischen Universitaet Berlin">
     </div>
     <div class="column">
-      <img class="demo cursor" src="/img/werdegang/utworld.jpeg" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+      <img class="demo cursor" src="/img/werdegang/utworld.jpeg" style="width:100%" onclick="currentSlide(2)" alt="The University of Texas at Austin - Campus">
     </div>
     <div class="column">
-      <img class="demo cursor" src="img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+      <img class="demo cursor" src="/img/werdegang/Gasturbine.jpg" style="width:100%" onclick="currentSlide(3)" alt="SIEMENS Gasturbinenwerk Berlin">
     </div>
     <div class="column">
-      <img class="demo cursor" src="img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+      <img class="demo cursor" src="/img/werdegang/wtc2.jpg" style="width:100%" onclick="currentSlide(4)" alt="World Trade Center Barcelona">
     </div>
+    <div class="column">
+      <img class="demo cursor" src="/img/werdegang/telefunken2.jpg" style="width:100%" onclick="currentSlide(5)" alt="Hochhaus TU-Berlin">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/img/werdegang/uttower.jpg" style="width:100%" onclick="currentSlide(6)" alt="Hauptverwaltung University of Texas">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/img/werdegang/hvb-large.jpg" style="width:100%" onclick="currentSlide(7)" alt="HypoVereinsbank - heute UniCredit">
+    </div>
+
   </div>
 </div>
 
-<script>
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-}
-
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-</script>
+<script src="/controllers/lightbox.js"></script>
     
 </body>
 </html>
