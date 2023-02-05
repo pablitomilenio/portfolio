@@ -1,6 +1,6 @@
 #Intro
 
-mysql -u root -p statistiki < file.sql
+
 
 sudo apt install libapache2-mod-php
 
@@ -21,3 +21,13 @@ add phpinfo(); to a php file and search for mysqli
 CREATE USER 'pablo'@'localhost' IDENTIFIED BY 'portaf';
 
 GRANT ALL PRIVILEGES ON *.* TO 'pablo'@'localhost' WITH GRANT OPTION;
+
+create database statistiki;
+
+mysql -u pablo -p statistiki < file.sql
+
+
+sudo phpenmod mysqli
+sudo service apache2 restart
+
+date-transform.php
