@@ -26,7 +26,7 @@ else{
 	
 	$query = "SELECT name, surname FROM `users` WHERE locate(lower('".$computer."'),pcs) >= 1";
 	
-	$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+	$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 	$res = mysqli_query($mysqli, $query );
 	$row = $res->fetch_assoc();
 	$name = $row['name'];

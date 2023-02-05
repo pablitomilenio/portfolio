@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $res = mysqli_query($mysqli, "select * from availability_today order by stamp desc");
 $row = $res->fetch_assoc();
 
@@ -26,7 +26,7 @@ $row4 = $res4->fetch_assoc();
 <head>
 <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<script src="/jquery-2.1.1.js"></script>
+<script src="./jquery-2.1.1.js"></script>
 <script>
 var today = new Date();
 var dd = today.getDate();
@@ -50,7 +50,7 @@ body {
 	background-repeat: no-repeat;
 	overflow:hidden;
 	font-family:MetaPlusLF;
-	background-image:url('Bogen_New2.png');
+	background-image:url('./Bogen_New2.png');
 }
 font {
 	font-weight:bold;
@@ -320,25 +320,25 @@ hr{
 	<font>SLA</font><br>Service-Level-<br>Agreement
 	</div>
 	<div id="cell2E" class="cellsA adj">
-		<div style="float:left;padding-left:50px;"><img src="/3colors.png">
+		<div style="float:left;padding-left:50px;"><img src="./3colors.png">
 		</div>
 		<div style="float:left;margin-left:5px">> 85%<br>&nbsp;&nbsp;80% - 85%<br>< 80%<br>
 		</div>
 	</div>
 	<div id="cell3E" class="cellsA adj">
-		<div style="float:left;padding-left:50px;"><img src="/3colors.png">
+		<div style="float:left;padding-left:50px;"><img src="./3colors.png">
 		</div>
 		<div style="float:left;margin-left:5px">> 95%<br>&nbsp;&nbsp;90% - 95%<br>< 90%<br>
 		</div>
 	</div>
 	<div id="cell4E" class="cellsA adj">
-		<div style="float:left;padding-left:50px;"><img src="/3colors.png">
+		<div style="float:left;padding-left:50px;"><img src="./3colors.png">
 		</div>
 		<div style="float:left;margin-left:5px">> 95%<br>&nbsp;&nbsp;90% - 95%<br>< 90%<br>
 		</div>
 	</div>
 	<div id="cell5E" class="cellsA adj">
-		<div style="float:left;padding-left:50px;"><img src="/3colors.png">
+		<div style="float:left;padding-left:50px;"><img src="./3colors.png">
 		</div>
 		<div style="float:left;margin-left:5px">> 85%<br>&nbsp;&nbsp;80% - 85%<br>< 80%<br>
 		</div>
@@ -486,6 +486,7 @@ if(window.innerWidth < 1300) {
 }
 
 
+document.body.style.zoom="65%"
 
     </script>
 

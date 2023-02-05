@@ -118,7 +118,7 @@ echo "Last Day:".date("d m Y",$lastday)."<br>";
 echo "String:".date("d m Y",strtotime("-63 day 00:00:01"))."<br>";
 */
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 $linkArr = Array();
 $dowArr = Array();

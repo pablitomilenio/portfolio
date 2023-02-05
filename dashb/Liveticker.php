@@ -123,7 +123,7 @@ if (!isset($_GET['stamp'])) $stamp = strtotime("00:00:01");
 else $stamp = $_GET['stamp'];
 $stamp2 = $stamp + 86397;
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $query = "select * from availability_today where stamp > ".$stamp." AND stamp <= ".$stamp2;
 $res = mysqli_query($mysqli,$query);
 
@@ -888,7 +888,7 @@ function rs(){
   
    if (l > vals.length-2 && jsStamp == null) {
    		clearInterval(theInt);
-   		theRel = setInterval("location.href='Liveticker.php?cont=1';",10);
+   		theRel = setInterval("location.href='./Liveticker.php?cont=1';",10);
    	}
    	
    	//console.log("Execution number:"+numRuns++); // REMOVE THIS
@@ -956,7 +956,7 @@ setTimeout("ctl()",1000);
 	}
 
 	function loadNew() {
-		$("#div1").load("deliverLiveVals.php?rand="+Math.random()+"&stamp="+jsStamp);
+		$("#div1").load("./deliverLiveVals.php?rand="+Math.random()+"&stamp="+jsStamp);
 		setTimeout("postProcess()",200);
 
 	}

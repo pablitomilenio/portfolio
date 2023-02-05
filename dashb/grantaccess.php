@@ -13,7 +13,7 @@
 	$ssign = $_POST['shortsign'];
 	$query = "select pcs from users where userid='".$ssign."'";
 	
-	$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+	$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");;
 	$res = mysqli_query($mysqli, $query );
 	$row = $res->fetch_assoc();
 	$pcs = $row['pcs'];

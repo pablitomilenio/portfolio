@@ -14,7 +14,7 @@
 	
 	//echo $stamp;
 	
-	$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+	$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 	$res = mysqli_query($mysqli, "delete from comments where stamp=$stamp");
 

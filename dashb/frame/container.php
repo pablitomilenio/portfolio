@@ -93,7 +93,7 @@ color: #C0C0C0;
 
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $query = "select * from bogendiagramm";
 $res = mysqli_query($mysqli,$query);
 
@@ -137,7 +137,7 @@ if (strlen($av_fto_month) == 2) $av_fto_month .= '.0';
 
 
 <div id="theD" style="left: 10%; top: 14%; width: 84%; height: 77%" >
-	<iframe id="if" width="100%" height="100%" border="0" frameBorder="0" src="http://sdet2125/Liveticker.php?ct=1&sd=1">iFrame</iframe>
+	<iframe id="if" width="100%" height="100%" border="0" frameBorder="0" src="/dashb/Liveticker.php?ct=1&sd=1">iFrame</iframe>
 </div>
 <div id="links">Availability [%]</div>
 
@@ -162,7 +162,7 @@ if (window.innerWidth < 1300) { // kleiner Quadratmonitor Eizo
 	$('#theD').css('left',"10%");
 }
 
-$("#if").attr('src',"http://sdet2125/Liveticker.php?ct=1&sd=1");
+$("#if").attr('src',"/dashb/Liveticker.php?ct=1&sd=1");
 
 function refPer() {
 	location.reload(true);

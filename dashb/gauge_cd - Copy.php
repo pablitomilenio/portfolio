@@ -81,7 +81,7 @@
 </script>
 
 <?php
-	$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+	$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 	//Erg.
 	$res = mysqli_query($mysqli, "select REPLACE(ThisMonth, ',', '.')*100 as thismonth from availability_today order by stamp desc limit 1 " );

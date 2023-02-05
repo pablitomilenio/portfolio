@@ -15,7 +15,7 @@ if (!isset($_GET['stamp'])) $stamp = strtotime("00:00:01");
 else $stamp = $_GET['stamp'];
 $stamp2 = $stamp + 86397;
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $query = "select * from availability_today where stamp > ".$stamp." AND stamp <= ".$stamp2;
 $res = mysqli_query($mysqli,$query);
 

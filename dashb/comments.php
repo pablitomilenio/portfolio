@@ -32,7 +32,7 @@
 	
 	echo date("d. F Y",$stamp)."<br>";
 
-	$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+	$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 	$res = mysqli_query($mysqli, "select * from comments where stamp=$stamp");
 	$row = $res->fetch_assoc();

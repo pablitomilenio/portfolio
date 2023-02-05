@@ -408,7 +408,7 @@ lLineColor = "#FC8787";
 </script>
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $query = "select * from availability_today where stamp > ".strtotime("00:00:01");
 $res = mysqli_query($mysqli,$query);
 

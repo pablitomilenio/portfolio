@@ -155,7 +155,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', end
 
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 $linkArr = Array();
 $dowArr = Array();

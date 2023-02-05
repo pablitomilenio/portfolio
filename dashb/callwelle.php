@@ -47,7 +47,7 @@
 <?php
 	$query = "SELECT calls_festo FROM `availability_today` order by stamp desc limit 7";
 	
-	$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+	$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 	$res = mysqli_query($mysqli, $query);
 	$row = $res->fetch_assoc();
 	for($q=0;$q<6;$q++) {

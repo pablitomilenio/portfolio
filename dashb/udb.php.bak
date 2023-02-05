@@ -4,7 +4,7 @@ include '/htmldom/simple_html_dom.php';
 $minPossible = strtotime("00:00:01");
 
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $res = mysqli_query($mysqli, "select max(stamp) as themax from availability_today");
 $maxStamp = mysqli_fetch_assoc($res);
 //echo "TheMAX: ".$maxStamp["themax"];

@@ -7,8 +7,8 @@
 <title>(Ɛη) Tägliche Werte</title>
 
 
-<script src="jquery-2.1.1.js"></script>
-<script src="jquery.cookie.js"></script>
+<script src="./jquery-2.1.1.js"></script>
+<script src="./jquery.cookie.js"></script>
 
 <style type="text/css">
 body {
@@ -164,7 +164,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', end
 
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 $linkArr = Array();
 $dowArr = Array();
@@ -179,7 +179,7 @@ for($d=60;$d>=0;$d--) {
 	if ($wd != 0 && $wd !=6 && strtotime("-".$d." day 00:00:01") >= 1413756001 && $row["erg"]>0)  {
 	    $dateStringB = strftime("%B", strtotime("-".$d." day 00:00:01")).strftime(" %d", strtotime("-".$d." day 00:00:01")).strftime(", %Y", strtotime("-".$d." day 00:00:01"));
 		//$linkArr[] = "<a href='/Liveticker.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."' >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
-		$linkArr[] = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('/Liveticker.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
+		$linkArr[] = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('./Liveticker.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
 		$dowArr[] = $wd; 
 	}
 }
@@ -226,7 +226,7 @@ echo "</table><br><br>";
 //print_r($dowArr);
 ?>
 
-<input class="boton gradient" onclick="location.href='/frame/container.php'" id="completa3"  type="button" value="Wie auf dem grossen Display"><br><br>
+<!-- <input class="boton gradient" onclick="location.href='./frame/container.php'" id="completa3"  type="button" value="Wie auf dem grossen Display"><br><br> -->
 
 
 <input class="boton2 gradient" onclick="$.cookie('clearNum', ++clearNum, { expires : 100});location.reload()"  type="button" value="Clear Calendar History"> (clears color of visited links)

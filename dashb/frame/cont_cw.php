@@ -84,7 +84,7 @@ color: #C0C0C0;
 
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $query = "select * from bogendiagramm";
 $res = mysqli_query($mysqli,$query);
 

@@ -60,7 +60,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febbbb', end
           <div align="left">
           Ihr Internet-Browser ist zu alt !<br>
           Sie verwenden zur Zeit: <br><br><font face="arial">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.101 Safari/537.36 OPR/25.0.1614.50"</font><br><br>
-          Hier können Sie Ihren Browser nach Wahl aktualisieren <br><br>
+          Hier kï¿½nnen Sie Ihren Browser nach Wahl aktualisieren <br><br>
           <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">=&gt; Internet Explorer</a><br>
           <a href="http://www.google.com/chrome/intl/de/landing_win.html?hl=de&hl=de">=&gt; Chrome</a><br>
           <a href="http://www.mozilla.org/en-US/firefox/all.html">=&gt; Firefox</a><br><br>
@@ -346,7 +346,7 @@ function plotLine(unix,buTag,betr) {// Unix sind die Unix-Timestamps
 			c.lineTo(breakTX[i], graph.height - 32);
 			c.stroke();
 			if (i == breakTX.length-1 || (breakTX[i+1]-breakTX[i]) > 28) {
-				c.fillText(fracToTime(breakTXL[i])+"¦", breakTX[i]+4, graph.height - yPadding + 20);
+				c.fillText(fracToTime(breakTXL[i])+"ï¿½", breakTX[i]+4, graph.height - yPadding + 20);
 			}
 		}
 				
@@ -378,7 +378,7 @@ lLineColor = "red";
 <?php
 include '/htmldom/simple_html_dom.php';
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 $res = mysqli_query($mysqli, "select * from availability_today");
 
 $stack = "";

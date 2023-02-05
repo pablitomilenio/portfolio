@@ -164,7 +164,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', end
 
 <?php
 
-$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$mysqli = mysqli_connect("localhost", "pablo", "portaf", "statistiki");
 
 $linkArr = Array();
 $dowArr = Array();
@@ -178,7 +178,7 @@ for($d=60;$d>=0;$d--) {
 
 	if ($wd != 0 && $wd !=6 && strtotime("-".$d." day 00:00:01") >= 1413756001 && $row["erg"]>0)  {
 	    $dateStringB = strftime("%B", strtotime("-".$d." day 00:00:01")).strftime(" %d", strtotime("-".$d." day 00:00:01")).strftime(", %Y", strtotime("-".$d." day 00:00:01"));
-		$linkArr[] = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('/LivetickerM.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
+		$linkArr[] = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('./LivetickerM.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
 		$dowArr[] = $wd; 
 	}
 }

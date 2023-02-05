@@ -2,17 +2,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
-<link rel="stylesheet" type="text/css" href="/Overall.css?new7">
-<link rel="stylesheet" type="text/css" href="/Buttons.css?new1">
+<link rel="stylesheet" type="text/css" href="./Overall.css?new7">
+<link rel="stylesheet" type="text/css" href="./Buttons.css?new1">
 
 <!-- Preload important js libraries for applacations that load later (pre-cache) -->
-<script src="jquery-2.1.1.js"></script>
-<script src="jquery.cookie.js"></script>
+<script src="./jquery-2.1.1.js"></script>
+<script src="./jquery.cookie.js"></script>
 
 <?php //include 'identify.php' ?>
 
-<link rel="shortcut icon" href="/Final2.ico" type="image/x-icon">
-<link rel="icon" href="/Final2.ico" type="image/x-icon">
+<link rel="shortcut icon" href="./Final2.ico" type="image/x-icon">
+<link rel="icon" href="./Final2.ico" type="image/x-icon">
 
 
 <title>S T A T ISTIK</title>
@@ -172,22 +172,21 @@ Gesamter realer Speicher:	8,00 GB<br>
 <div id="theCont" style="padding:30px">
 <div id="theCont">
 
-	<input id="completa2" class="boton gradient hov" onclick="window.open('/Wochenuebersicht.php', '_blank');" type="button" value="Liveticker Erreichbarkeit"></font></span> 
+	<input id="completa2" class="boton gradient hov" onclick="window.open('./Wochenuebersicht.php', '_blank');" type="button" value="Liveticker Erreichbarkeit"></font></span> 
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<!-- <input id="completa2" class="boton gradient hov" onclick="window.open('/Wochenuebersicht_vs.php', '_blank');" type="button" value="Liveticker Erreichbarkeit Start2"></font></span> 
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-	<input title="Welche Tage waren besonders schwer, welche besonders gut? Wie lässt sich das Monatsergebnis erklären?" id="completa2" class="bBig bOrange gradient additional hov" onclick="window.open('/TopsFlops.php', '_blank');" type="button" value="Monatsverteilung">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<input title="Welche Tage waren besonders schwer, welche besonders gut? Wie lässt sich das Monatsergebnis erklären?" id="completa2" class="bBig bOrange gradient additional hov" onclick="window.open('./TopsFlops.php', '_blank');" type="button" value="Monatsverteilung">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 			&nbsp; 
 	
-	<input id="completa2" class="boton2 gradient hov" style="font-size:16pt;height:50px;" onclick="window.open('/Wochenuebersicht_En.php', '_blank');" type="button" value="Accurate View">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input title="Wie stark muss der FGSD LT in diesem Moment arbeiten?" id="completa2" class="bSmall bPink gradient hov" onclick="window.open('http://sdet2125/callwelle.php', '', 'fullscreen=yes')" type="button" value="Callwellenindikator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input id="completa2" class="boton2 gradient hov" onclick="location.href='/Enzyklo.php'" type="button" value="Enzyklopädie">
+	<input id="completa2" class="boton2 gradient hov" style="font-size:16pt;height:50px;" onclick="window.open('./Wochenuebersicht_En.php', '_blank');" type="button" value="Accurate View">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input title="Wie stark muss der FGSD LT in diesem Moment arbeiten?" id="completa2" class="bSmall bPink gradient hov" onclick="window.open('./callwelle.php', '', 'fullscreen=yes')" type="button" value="Callwellenindikator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input id="completa2" class="boton2 gradient hov" onclick="location.href='./Enzyklo.php'" type="button" value="Enzyklopädie">
 	<br><br><br><br>
 			
-	<input id="completa3" class="boton gradient hov" onclick="window.open('http://sdet2125/arcsPage_X.php', '', 'fullscreen=yes, scrollbars=auto');" type="button" value="Bogendiagramm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input title="Der aktuelle Stand der Errreichbarkeit diesen Monat. Graphisch dargestellt und visuell viel begreifbarer" id="completa4" class="bPink bBig gradient hov" style="font-size:16pt;height:50px;" onclick="window.open('http://sdet2125/gauge_cd.php', '', 'fullscreen=yes, scrollbars=no');" type="button" value="Monatswaage 3 - Current Monthly Status">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-	<input title="Erreichbarkeit in einer 'echteren' Waage" id="completa4" class="bBlack gradient hov" onclick="window.open('/monatswaage.php', '', 'fullscreen=yes, scrollbars=auto,width=1920,height=1080');" type="button" value="Monatswaage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input id="completa2" class="boton2 gradient hov" onclick="window.open('\\\\cde62560\\c$\\TEMP\\Statistik\\DASHBOARD\\DASHBOARD.jpg')" type="button" value="Dashboard (TOK)">
+	<input id="completa3" class="boton gradient hov" onclick="window.open('./arcsPage_X.php', '', 'fullscreen=yes, scrollbars=auto');" type="button" value="Bogendiagramm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input title="Der aktuelle Stand der Errreichbarkeit diesen Monat. Graphisch dargestellt und visuell viel begreifbarer" id="completa4" class="bPink bBig gradient hov" style="font-size:16pt;height:50px;" onclick="window.open('./gauge_cd.php', '', 'fullscreen=yes, scrollbars=no');" type="button" value="Monatswaage 3 - Current Monthly Status">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<input title="Erreichbarkeit in einer 'echteren' Waage" id="completa4" class="bBlack gradient hov" onclick="window.open('./monatswaage.php', '', 'fullscreen=yes, scrollbars=auto,width=1920,height=1080');" type="button" value="Monatswaage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<b><br><br><font size="5"><font color="red">schließen mit ALT_F4 oder 'X' </font> 
 	</font> </b>
 
@@ -215,7 +214,7 @@ Gesamter realer Speicher:	8,00 GB<br>
 	&#10=> Die Monatswaage - CD hat neue Bildelemente und eine erweiterte Skala.
 	&#10=> Die monatliche Rankingliste beinhaltet nun auch den letzten Monatstag. Außerdem kann man nun weiter zurück blättern.
 	&#10=> Es gibt einen Button 'Callwellenindikator' der simuliert ob und wie schnell die Anrufe momentan ankommen
-	</textarea><img src="/HTML5_logo.png" width="7%" style="margin-left:150px">
+	</textarea><img src="./HTML5_logo.png" width="7%" style="margin-left:150px">
 	<input id="completa2" class="bSmall bPink gradient hov" style="opacity:0.3" onclick="window.location='/img/Favorites.png'" type="button" value="RIA Hinweis">
 <hr><font size="5">
 <p style="margin: 0.5em 0px; line-height: 21.2800006866455px; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 16pt; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
