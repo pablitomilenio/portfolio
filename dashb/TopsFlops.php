@@ -303,7 +303,7 @@ Deltas Gemessen in Promille (1/1000)<br><br>
 </div><br><br>
 <table style="background-color:#CEE3F6; font-size:12pt;border-radius:8px;"><tr><td>Hellblau: Abschlusstag bzw. heute (Werte sind live)</td></tr></table><br>
 
-<div>Dieser Monat hat als momentanen <div class="alarm"> Endwert <?php echo $endVal ?>% </div> monatlicher Erreichbarkeit LT.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u><b onclick="window.open('/gauge_cd.php', '', 'fullscreen=yes, scrollbars=auto,width=1920,height=1080');">Monatswaage</b></u></div><br><br>
+<div>Dieser Monat hat als momentanen <div class="alarm"> Endwert <?php echo $endVal ?>% </div> monatlicher Erreichbarkeit LT.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u><b onclick="window.open('./gauge_cd.php', '', 'fullscreen=yes, scrollbars=auto,width=1920,height=1080');">Monatswaage</b></u></div><br><br>
 
 <input class="boton2 gradient" onclick="$.cookie('clearNum', ++clearNum, { expires : 100});location.reload()"  type="button" value="Clear Calendar History"> (clears color of visited links)
 <br><br>
