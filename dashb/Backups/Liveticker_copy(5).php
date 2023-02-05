@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0048)http://www.zamza.cl/contabilidad/Leistungsindex/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<script src="jquery-2.1.1.js"></script>
+<title>Liveticker</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #4a4d4d;
+	margin: 0;
+	width: 100%;
+	height: 110%;
+	padding: 0;
+	overflow: hidden;
+	font-family:MetaPlusLF;
+}
+#graph {
+}
+#timeDisp{
+	/* border: 1px solid black; */
+	border:0;
+	left:405px; 
+	top : 15px;
+	height: 108px;
+	width: 332px;
+	position:absolute;
+	display:none;
+	z-index:20;
+	border-radius:8px;
+	/* background-color:orange; */
+}
+#percWindow{
+	left:0px; 
+	top : 112px; 
+	height: 108px; 
+	width: 327px; 
+	position:absolute; 
+	z-index:10;"
+}
+#theGraphs {
+	/*background-color: orange;*/
+	position:absolute;
+	width: 60%;
+	top:10px;
+	left:10px;
+	margin: 0;
+	z-index:0;
+	padding: 0;
+	/* opacity:0.4; */
+}
+.bgGreen {
+	background: #92d050;
+}
+.bgYellow {
+	background: #ffff00;
+}
+.bgRed {
+	background: #ff0000;
+}
+-->
+</style>
+</head>
+
+<body >
+
+<div id="percWindow">
+	<img id="firstDigit" src="Ziffern/1.png"> 	
+	<img id="secondDigit" src="Ziffern/0.png"> 
+	<img id="comma" src="Ziffern/Komma.png"> 
+	<img id="thirdDigit" src="Ziffern/0.png"> 
+	<img src="Ziffern/perc.png"></div>
+<div id="timeDisp">
+<img id="hour1" src="Ziffern/1.png" width="35px" height="54px"> 
+<img id="hour2" src="Ziffern/0.png" width="35px" height="54px"> 
+<img id="colon" src="Ziffern/colon.png" width="18px" height="54px">
+<img id="minute1" src="Ziffern/0.png" width="35px" height="54px"> 
+<img id="minute2" src="Ziffern/0.png" width="35px" height="54px"> 
+<font color="white"; size="15pt">Uhr</font>
+</div>
+
+<div id="theGraphs" align="center">
+	<canvas id="graph" height="100%" width="100%">
+	<div align="left">
+	IhrInternet-Browseristzualt!<br>SieverwendenzurZeit:<br><br><font face="arial">"Mozilla/5.0(WindowsNT6.1;WOW64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/38.0.2125.101Safari/537.36OPR/25.0.1614.50"</font><br><br>HierkönnenSieIhrenBrowsernachWahlaktualisieren<br><br><a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">=&gt;InternetExplorer</a><br><a href="http://www.google.com/chrome/intl/de/landing_win.html?hl=de&amp;hl=de">=&gt;Chrome</a><br><a href="http://www.mozilla.org/en-US/firefox/all.html">=&gt;Firefox</a><br><br>DurchdieAktualisierungwirdIhrInterneterlebnisharwarebeschleunigtundkompatibler</canvas></div>
+</canvas>
+</div>
+<script>
+function numGen(min, max) {
+	var num = Math.random() * (max - min) + min;
+	return Math.floor(num*100)/100;
+}
+</script>
+<script>
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getDayFrac(time) {
+	tArr = new Array();
+	tArr = time.split(":");
+	horas = parseInt(tArr[0]);
+	minutos = parseInt(tArr[1]);
+	dec = minutos / 60;
+	number = horas + dec;
+	return number / 24;
+}
+
+function fracToTime(timeFrac) {
+	tmp = timeFrac * 24;
+	horas = Math.floor(tmp);
+	minutosNum = (tmp - horas)*100;
+	minutos = Math.floor(minutosNum * 60 /100);
+	if (minutos < 10) minutos = "0" + minutos;
+	return horas+":"+minutos;
+}
+
+function txToFrac(TX){
+tStart = ts[0];
+tEnd = ts[ts.length-1];
+
+}
+
+function toggleClass(name){
+	$("#theGraphs").removeClass();
+	$("#theGraphs").removeClass(1600).toggleClass("bg"+name, 1600);
+}
+
+dipos = 0;
+dival = 0;
+
+function plotLine(unix,buTag,betr) {// Unix sind die Unix-Timestamps
+	$("#percWindow").fadeIn("slow");
+	// unix: Timestamps
+	// buTag: labesls
+	// betr: y values
+	var graph;
+	var xPadding = 110;
+	var yPadding = 60;
+	var xes = new Array();
+	var yes = new Array();
+	wdPees = new Array();
+	
+	for(q=0;q<unix.length;q++) {
+		xes[q] = unix[q];
+		yes[q] = betr[q];
+	}
+	
+	xesBeta = xes; //xesBeta wird unten sortiert. Die Xe sind nicht genau in aufsteigender Reihenfolge.
+				   // Daher gibt es einen Graphikfehler
+
+	var buTagJ = new Array();
+	
+	for (i=0;i<buTag.length;i++){
+		buTagJ[i] = buTag[i];
+		//alert(buTagJ[i]);
+	}
+
+			
+	// Returns the max Y value in our data list
+	function getMaxY() {
+		var max = 0;
+		
+		for(var i = 0; i < yes.length; i ++) {
+			if(yes[i] > max) {
+				max = yes[i];
+			}
+		}
+		
+		max += 10 - max % 10;
+		return max;
+	}
+	
+	/*
+	// Return the x pixel for a graph point
+    function getXPixel(val) {
+		return ((graph.width - xPadding) / betr.length) * val + (xPadding * 1.5);
+	}*/
+	
+	function getXPixel(val) {
+		//           
+		//alert(graph.width);
+	 //alert(getMaxX()); //22
+		//xesBeta.sort();
+		maxX = xesBeta[xes.length-1];
+		minX = xesBeta[0];
+		spanData = maxX-minX;
+		spanScreen = (graph.width-xPadding*2);
+		//alert("spanData:"+spanData+" spanScreen:"+spanScreen+" minX:"+minX+" maxX:"+maxX);
+		//return xPadding+10+data.values[val].X/minX*50;
+		myResult = spanScreen-((maxX-xes[val])*(spanScreen/spanData)-xPadding-10);
+		if (myResult < 1) {
+			alert("Fehler:Der letzte Wert auf der X-Achse ist geringer als der erste");
+			//alert("spanData:"+spanData+" spanScreen:"+spanScreen+" minX:"+minX+" maxX:"+maxX);	
+		}
+		return myResult
+
+		//return 30;
+		//return graph.width - (((graph.width - xPadding) / getMaxX()) * val) - xPadding;
+	}
+	
+	// Return the y pixel for a graph point
+	function getYPixel(val) {
+		return graph.height - (((graph.height - 0) / getMaxY()) * val) - yPadding*2+20; // 0 means yPadding
+	}
+
+	$(document).ready(function() {
+		graph = canvas;
+		var c = graph[0].getContext('2d'); 
+		
+		//clearing the Canvas
+		c.clearRect(0,0,canvas.width,canvas.height);
+				
+		c.lineWidth = 2;
+		c.strokeStyle = 'black';
+		c.font = 'italic 120pt MetaPlusLF';
+		c.textAlign = "center";
+				
+		// Draw the axisesp
+		
+		c.setLineDash([3,3]);
+		
+		c.beginPath();
+		c.moveTo(xPadding, yPadding-30);
+		c.lineTo(xPadding, graph.height+20 - yPadding);
+		c.lineTo(graph.width - xPadding/2, graph.height+20 - yPadding); // Y-Achse
+		c.stroke();
+		
+	   
+		// Draw the Y value texts
+		c.textAlign = "right"
+		c.textBaseline = "middle";
+		
+        c.fillStyle = 'black';
+		c.font = '27pt MetaPlusLF';
+		c.fillText(60+"% -", xPadding + 0, getYPixel(60-cutOff));		
+		c.fillText(100+"% -", xPadding + 0, getYPixel(100-cutOff));
+
+		c.font = 'bold 30pt MetaPlusLF';
+		c.fillText(80+"% ", xPadding + 0, getYPixel(80-cutOff));		
+		c.fillText(85+"% ", xPadding + 0, getYPixel(85-cutOff));
+		
+		
+		
+		// Draw the dashed lines
+		c.setLineDash([12,3,3,3]);
+		
+		c.strokeStyle = 'white';
+		c.lineWidth = 1;
+		//c.setLineDash(5,10);
+		
+		c.beginPath();
+		c.moveTo(xPadding-8, getYPixel(85-cutOff));
+		c.lineTo(graph.width+30-xPadding, getYPixel(85-cutOff));
+		c.stroke();
+
+		c.beginPath();
+		c.moveTo(xPadding-8, getYPixel(80-cutOff));
+		c.lineTo(graph.width+30-xPadding, getYPixel(80-cutOff));
+		c.stroke();
+		
+		c.setLineDash([0,0]);
+
+
+		
+		
+		c.strokeStyle =  lineColor;
+		function begReColor(col1,tlim) {
+			x1 = getXPixel(i-1);
+			x2 = getXPixel(i);
+			y1 = yes[i-1];
+			y2 = yes[i];
+			slope = (y2 - y1)/(x2 - x1);
+			cconst = y1 - slope*x1;
+			newXPos = (tlim-cconst)/slope;	
+ 			toFracFactor = getXPixel(i)/xes[i];
+			c.lineTo(newXPos, getYPixel(tlim));	
+			breakTXL.push(newXPos/toFracFactor);
+			breakTX.push(newXPos);
+			breakTY.push(getYPixel(tlim));	
+			c.strokeStyle =  col1;
+			c.stroke();				
+			c.beginPath();
+			c.moveTo(newXPos, getYPixel(tlim));	
+		}
+
+		function endReColor(col2,tlim) {
+			x1 = getXPixel(i-1);
+			x2 = getXPixel(i);
+			y1 = yes[i-1];
+			y2 = yes[i];
+			slope = (y2 - y1)/(x2 - x1);
+			cconst = y1 - slope*x1;
+			newXPos = (tlim-cconst)/(slope);
+ 			toFracFactor = getXPixel(i)/xes[i];
+			breakTXL.push(newXPos/toFracFactor);
+			breakTX.push(newXPos);
+			breakTY.push(getYPixel(tlim));	
+				
+			c.lineTo(newXPos, getYPixel(tlim));		
+			c.strokeStyle =  mLineColor;
+			c.stroke();				
+			c.beginPath();
+			c.moveTo(newXPos, getYPixel(tlim));
+			c.lineTo(x2,getYPixel(y2));
+			c.strokeStyle =  col2;
+			c.stroke();				
+			//console.log("x1:"+Math.round(x1)+" x2:"+Math.round(x2)+
+			//" y1:"+y1+" y2:"+y2+" newX:"+Math.round(newXPos)+" gyp:"+getYPixel(tlim));
+		}
+
+		
+		
+		// Draw the line graph
+	
+		c.lineWidth = 11;
+		for(var i = 1; i < yes.length; i ++) {
+			c.beginPath();
+			c.moveTo(getXPixel(i-1), getYPixel(yes[i-1]));
+
+			if (yes[i-1] >= mlim) { //starts green
+				if(yes[i] >= mlim) { // end also green
+					c.strokeStyle =  lineColor;
+					toggleClass("Green");
+				} 
+				if(yes[i] < mlim) { // ends in yellow
+					begReColor(lineColor,mlim);
+					c.strokeStyle =  mLineColor;
+					toggleClass("Yellow");
+				}
+				if(yes[i] <= llim) { // ends in red
+					begReColor(lineColor,mlim);
+					endReColor(lLineColor,llim);
+					toggleClass("Red");
+				}
+
+			}	
+			if( (yes[i-1] > llim) && (yes[i-1] < mlim) ) 	{ //starts yellow	
+				if(yes[i] <= llim) { // end downards to red
+					begReColor(mLineColor,llim);
+					c.strokeStyle =  lLineColor;
+					toggleClass("Red");
+				} if(yes[i] >= mlim) { // end upwards in green
+					begReColor(mLineColor,mlim);
+					c.strokeStyle =  lineColor;
+					toggleClass("Green");
+				} 
+			}
+			if (yes[i-1] <= llim) 	{ // starts red
+				if(yes[i] <= llim) { // end also red
+					c.strokeStyle =  lLineColor;
+				} 
+				if(yes[i] > llim) { // ends in yellow
+					begReColor(lLineColor,llim);
+					c.strokeStyle =  mLineColor;
+					toggleClass("Yellow");
+				}
+				if(yes[i] >= mlim) { // ends in green
+					begReColor(lLineColor,llim);
+					endReColor(lineColor,mlim);
+					toggleClass("Green");
+				}
+
+			}
+
+			c.lineTo(getXPixel(i), getYPixel(yes[i]));					
+			c.stroke();
+		}
+		
+		
+		
+		
+		// Draw the dots
+		for(var i = 0; i < yes.length; i ++) {  
+			dotSize = 5;
+			c.beginPath();
+			if (yes[i]>=mlim) c.fillStyle = lineColor;
+			if ((yes[i]<mlim) && (yes[i]>=llim)) c.fillStyle = mLineColor;
+			if (yes[i]<llim)  c.fillStyle =  lLineColor;
+			if (i==yes.length-1) {
+				c.fillStyle =  "black";
+				dotSize = 5;
+			}
+			c.arc(getXPixel(i), getYPixel(yes[i]), dotSize, 0, Math.PI * 2, true);
+			if(getXPixel(l-1)<(canvas.width-$("#percWindow").width())) {
+				$("#percWindow").css("top",Math.min(Math.max(getYPixel(yes[i]) - $("#percWindow").height()/2,$("#percWindow").height()/3),canvas.height - 350));
+				$("#percWindow").css("left",Math.min(canvas.width - $("#percWindow").width(),getXPixel(l-1)+20));
+			} else {
+				$("#percWindow").css("top",Math.min(getYPixel(yes[i])+61,canvas.height-170));
+				$("#percWindow").css("left",Math.min(canvas.width - $("#percWindow").width(),getXPixel(l-1)+20));
+			}
+			$("#timeDisp").css("left",(parseInt($("#percWindow").css("left"))+30)+"px");		
+			$("#timeDisp").css("top", (parseInt($("#percWindow").css("top"))+130)+"px");		
+			c.fill();
+		}
+		
+			/*
+			// Number the dot at the end
+			c.fillStyle = "black";
+			c.font = 'italic 20pt sans-serif';
+			c.fillText(Math.round(yes[yes.length-1]+cutOff)+"%",getXPixel(yes.length-1)+30,getYPixel(yes[yes.length-1])-35);
+			*/
+		
+		/*
+		// Draw the X value texts
+		c.strokeStyle = '#DDDDDD'; // color of the rainlines
+		c.font = 'italic 8pt sans-serif';
+		c.lineWidth = 0.5;
+		for(var i = 0; i < breakTX.length; i ++) {
+			c.moveTo(breakTX[i], breakTY[i]+6);
+			//c.lineTo(breakTX[i], graph.height - 32); // This would have drawn the exact lines with the hour breaks
+			c.stroke();
+			if (i == breakTX.length-1 || (breakTX[i+1]-breakTX[i]) > 28) {
+				//c.fillText(fracToTime(breakTXL[i])+"¦", breakTX[i]+4, graph.height - yPadding + 20); // Text of hour breaks
+			}
+		}
+		*/
+		
+		function drawTimes () {
+		
+			maxTime = ts[ts.length-1]; 
+	
+			var labelTimes = new Array();
+			for(y=0;getDayFrac(xPossArr[y])<=maxTime;y++) {
+				labelTimes.push(xPossArr[y]);
+			}
+
+		
+			c.fillStyle = 'black';
+			c.font = '30pt MetaPlusLF';
+
+			pixelPerUnit = (graph.width - (xPadding+70)) / labelTimes.length;
+			
+			for(h=0;h<labelTimes.length;h++) c.fillText(labelTimes[h], (xPadding+93)+pixelPerUnit*h, graph.height+35 - yPadding); // Text of hour breaks
+
+
+		}
+			
+		drawTimes();	
+		
+	});
+	//console.log("plot ready");
+}
+
+ts = new Array();
+lab = new Array();
+vals = new Array();
+
+canvas = $('#graph');
+document.getElementById("graph").width   = window.innerWidth-0;
+document.getElementById("graph").height  = window.innerHeight-0;
+canvas.width  = window.innerWidth-0;
+canvas.height = window.innerHeight-0;
+$("#theGraphs").width(canvas.width+"px");
+$("#theGraphs").css("left",window.innerWidth/2 - $("#theGraphs").width()/2);
+$("#theGraphs").css("top",window.innerHeight/2 - $("#theGraphs").height()/2);
+
+
+cutOff = 60; // Von unten bis cutOff wird alles weggeschnitten
+
+mlim = 85 - cutOff; // grenze zwischen gruen und gelb
+llim = 80 - cutOff; // untere Grenze unter der es rot ist
+
+lineColor = "#7F7F7F";
+mLineColor = "#595959";
+lLineColor = "#404040";
+</script>
+<?php
+if ($_GET['stamp'] == "") $stamp = strtotime("00:00:01");
+else $stamp = $_GET['stamp'];
+$stamp2 = $stamp + 86397;
+
+$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$query = "select * from availability_today where stamp > ".$stamp." AND stamp <= ".$stamp2;
+$res = mysqli_query($mysqli,$query);
+
+$stack = "";
+$dbTimes = "";
+
+while ($row = $res->fetch_assoc()) {
+    $stack .= $row['Festo'].";";
+    $dbTimes .= date("H:i:s",$row['stamp']).";";
+}
+
+?>
+<script>
+vals2 = "<?php echo $stack ?>";
+times2 = "<?php echo $dbTimes ?>";
+jsuStamp = "<?php echo $stamp ?>";
+
+times = new Array();
+
+
+times2b = times2.split(";");
+vals = vals2.split(";");
+vals.pop();
+times2b.pop();
+for(w=0;w<vals.length;w++) {
+	vals[w] = parseFloat(vals[w])-cutOff;
+	vals[w] = parseFloat(vals[w].toFixed(1));
+	times[w] = getDayFrac(times2b[w]);
+}
+ts = times;
+
+
+
+
+var xTimeString = "06:00;07:00;08:00;09:00;10:00;11:00;12:00;13:00;14:00;15:00;16:00;17:00;18:00;19:00;20:00;21:00;22:00;23:00;24:00";
+var xPossArr = new Array();
+xPossArr = xTimeString.split(";");
+
+
+</script>
+<script>
+l=0;
+theRel = 0;
+theInt = 0;
+var shallContinue = getUrlVars()["cont"];
+//var jsStamp = getUrlVars()["stamp"];
+jsStamp = jsuStamp;
+
+var valsShow = new Array();
+
+if (shallContinue) {
+	valsShow = vals;
+	l=vals.length-1
+	//console.log(l);
+	}
+else {
+	theInt = setInterval(rs,200);
+}
+
+initVal = 86;
+
+
+var currentHour = 6;
+var lastHour = 6;
+
+//$("#timeDisp").css("left",  window.innerWidth/2-$("#timeDisp").width()/2); // gerade auskommentiert
+numRuns = 0;
+isUpdated = false;
+blocked = false;
+function rs(){
+if ((dival - cutOff)>mlim) toggleClass("Green");
+if ((dival - cutOff)<=mlim && (dival - cutOff)>=llim) toggleClass("Yellow");
+if ((dival - cutOff)<llim) toggleClass("Red");
+
+
+
+	if(l<=vals.length-1) valsShow.push(vals[l++]);
+	else  {
+		clearInterval(theInt);
+		theNew = setInterval(loadNew,900);
+	}
+	breakTX = new Array();
+	breakTXL = new Array();
+	breakTY = new Array();
+	plotLine(ts,lab,valsShow);
+	if(!isNaN(parseInt(valsShow[l-1])+cutOff)) dival = parseInt(valsShow[l-1])+cutOff;
+	if(!isNaN(parseInt(valsShow[l-1])+cutOff)) dival2 = parseFloat(valsShow[l-1])+cutOff;
+	if(dival < 100) {
+		fd = parseInt((valsShow[valsShow.length-1]+cutOff+'').substr(0,1));
+		sd = parseInt((valsShow[valsShow.length-1]+cutOff+'').substr(1,1));
+		thd = parseInt((valsShow[valsShow.length-1]+cutOff+'').substr(3,1));
+		if(!(thd >= 0)) thd = 0;
+		$("#firstDigit").attr("src","Ziffern/"+fd+".png");
+		if(fd == 0) {
+			$("#firstDigit").hide();
+			$("#secondDigit").hide();
+			$("#comma").hide();
+		}
+		else {
+			$("#firstDigit").show();
+			$("#secondDigit").show();
+			$("#comma").show();
+		}
+		
+		$("#secondDigit").attr("src","Ziffern/"+sd+".png");
+		$("#thirdDigit").attr("src","Ziffern/"+thd+".png");
+		
+		if ((fd >= 8 && sd >= 5) || fd >=9 ) $("#timeDisp").css("background-color","transparent");
+		else $("#timeDisp").css("background-color","transparent");
+	
+		//$("#percWindow").width("218");
+	}else {
+		$("#timeDisp").css("background-color","transparent");
+	
+		$("#firstDigit").attr("src","Ziffern/1.png");
+		$("#secondDigit").attr("src","Ziffern/0.png");	
+		$("#thirdDigit").attr("src","Ziffern/0.png");
+		$("#thirdDigit").show();
+		$("#comma").hide();
+	
+		//$("#percWindow").width("418");
+	}
+
+		currentHour = fracToTime(ts[l]).substr(0, 1);
+		if (!(currentHour >=0)) $("#timeDisp").hide(0);
+	
+		if ((currentHour == 1 || currentHour == 2) && (currentHour >=0)) { // double digit
+			currentHour = fracToTime(ts[l]).substr(0, 2);
+			$("#hour1").attr("src","Ziffern/"+currentHour.substr(0, 1)+".png");
+			$("#hour2").attr("src","Ziffern/"+currentHour.substr(1, 1)+".png");
+			theMins = fracToTime(ts[l-1]).substr(3, 2);
+			$("#minute1").attr("src","Ziffern/"+theMins.substr(0, 1)+".png");
+			$("#minute2").attr("src","Ziffern/"+theMins.substr(1, 1)+".png");
+
+		} else if (currentHour >=0) { //single digit
+			theMins = fracToTime(ts[l-1]).substr(2, 2);
+			$("#minute1").attr("src","Ziffern/"+theMins.substr(0, 1)+".png");
+			$("#minute2").attr("src","Ziffern/"+theMins.substr(1, 1)+".png");
+
+			$("#hour1").attr("src","Ziffern/0.png");
+			$("#hour2").attr("src","Ziffern/"+currentHour.substr(0, 1)+".png");
+		}
+		
+		if(isUpdated){
+			currentHour = fracToTime(ts[l-1]).substr(0, 2);
+			$("#hour1").attr("src","Ziffern/"+currentHour.substr(0, 1)+".png");
+			$("#hour2").attr("src","Ziffern/"+currentHour.substr(1, 1)+".png");
+
+			theMins = fracToTime(ts[l-1]).substr(3, 2);
+			$("#minute1").attr("src","Ziffern/"+theMins.substr(0, 1)+".png");
+			$("#minute2").attr("src","Ziffern/"+theMins.substr(1, 1)+".png");
+	
+		}
+	
+
+	if(((currentHour != lastHour) && (!shallContinue) && (currentHour >=0)) || isUpdated) {
+		lastHour = currentHour;
+		$("#timeDisp").fadeIn(700);
+		//$("#timeDisp").fadeOut(900);
+	}
+	
+	
+   if (l > vals.length-2 && jsStamp == null) {
+   		clearInterval(theInt);
+   		theRel = setInterval("location.href='Liveticker.php?cont=1';",60000);
+   	}
+   	
+   	//console.log("Execution number:"+numRuns++); // REMOVE THIS
+}
+</script>
+
+<div id="div1" style="display:block">Loading...</div>
+
+<script>
+	function postProcess(){
+		respuesta = $('#div1').text();
+		a1 = respuesta.split("/");
+		uV = a1[0];
+		uT = a1[1];
+		
+		uValues = uV.split(";");
+		uTimes = uT.split(";");
+		
+		uValues.pop();
+		uTimes.pop();
+		
+		
+		for(w=0;w<uValues.length;w++) {
+			uValues [w] = parseFloat(uValues [w])-cutOff;
+			uValues [w] = parseFloat(uValues [w].toFixed(1));
+			uTimes[w] = getDayFrac(uTimes[w]);
+		}
+
+		
+		if (ts.length != uTimes.length) {
+			isUpdated = true;
+			
+			ts = uTimes;
+			vals = uValues;
+			
+			rs();
+		}
+	}
+
+	function loadNew() {
+		$("#div1").load("deliverLiveVals.php?rand="+Math.random()+"&stamp="+jsStamp);
+		setTimeout("postProcess()",200);
+
+	}
+</script>
+
+</body>
+
+</html>

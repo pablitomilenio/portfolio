@@ -1,0 +1,107 @@
+<?php
+include '/htmldom/simple_html_dom.php';
+
+$minPossible = strtotime("00:00:01");
+
+
+$mysqli = mysqli_connect("localhost", "root", "", "statistiki");
+$res = mysqli_query($mysqli, "select max(stamp) as themax from availability_today");
+$maxStamp = mysqli_fetch_assoc($res);
+//echo "TheMAX: ".$maxStamp["themax"];
+$maxStamp = $maxStamp["themax"];
+
+//system('cmd /c cp.bat');
+
+system('cp.bat');
+
+$html = file_get_html('data.html');
+
+$stamp = $html->find('td', 0)->innertext;
+//$stamp = $stamp->find("span",1);
+//echo $stamp."<br>";
+$stamp = substr($stamp, -8, 8);
+$time = $stamp;
+$stamp = strtotime($stamp);
+
+
+if (($maxStamp > ($stamp + 25*60) ) && ($maxStamp > strtotime("06:30:00"))) mysqli_query($mysqli, "DELETE FROM availability_today ORDER BY stamp DESC LIMIT 1"); // Ausreisser loeschen
+
+
+
+
+$row1 = $html->find('tr', 2);
+//echo $html;
+//echo "<hr><pre>";
+
+$avFesto = floatval(str_replace(",", ".", $row1->find("td",1)->innertext));
+$avTTS   = floatval(str_replace(",", ".", $row1->find("td",2)->innertext));
+$avDid   = floatval(str_replace(",", ".", $row1->find("td",3)->innertext));
+$avProd  = floatval(str_replace(",", ".", $row1->find("td",4)->innertext));
+
+$avFestoC = floatval(str_replace(",", ".", $row1->find("td",6)->innertext));
+$avTTSC   = floatval(str_replace(",", ".", $row1->find("td",7)->innertext));
+$avDidC   = floatval(str_replace(",", ".", $row1->find("td",8)->innertext));
+
+
+$row8 = $html->find('tr', 8);
+
+$festo_today 		= floatval(str_replace(",", ".", $row8->find("td",1)->innertext));
+$tts_today   		= floatval(str_replace(",", ".", $row8->find("td",2)->innertext));
+$didactic_today   	= floatval(str_replace(",", ".", $row8->find("td",3)->innertext));
+$produktion_today  	= floatval(str_replace(",", ".", $row8->find("td",4)->innertext));
+
+
+$row9 = $html->find('tr', 9);
+
+$festo_week 		= floatval(str_replace(",", ".", $row9->find("td",1)->innertext));
+$tts_week   		= floatval(str_replace(",", ".", $row9->find("td",2)->innertext));
+$didactic_week   	= floatval(str_replace(",", ".", $row9->find("td",3)->innertext));
+$produktion_week  	= floatval(str_replace(",", ".", $row9->find("td",4)->innertext));
+
+$row10 = $html->find('tr', 10);
+
+$festo_month 		= floatval(str_replace(",", ".", $row10->find("td",1)->innertext));
+$tts_month   		= floatval(str_replace(",", ".", $row10->find("td",2)->innertext));
+$didactic_month   	= floatval(str_replace(",", ".", $row10->find("td",3)->innertext));
+$produktion_month  	= floatval(str_replace(",", ".", $row10->find("td",4)->innertext));
+
+
+
+//echo $didactic_month;
+
+//echo $stamp."<br>";
+
+/*
+echo $avFesto."<br>";
+echo $avTTS."<br>";
+echo $avDid."<br>";
+echo $avProd."<br>";
+
+echo $avFestoC."<br>";
+echo $avTTSC."<br>";
+echo $avDidC."<br>";
+*/
+
+/*
+
+echo strtotime("19:27:54");
+echo "\n";
+echo $stamp;
+*/
+
+if(($stamp >= strtotime("05:50:00")) && ($stamp <= strtotime("19:30:00"))) {
+	if ( true ) { //if the maximum stamp is from yesterday then insert something from today. The stamp cannot be 25 minutes bigger //($maxStamp <= $minPossible) || ($stamp <= ($maxStamp + (6*60*60)))
+		$query = "insert into availability_today values(".$stamp.",'".$time."',".$avFestoC.",".$avTTS.",".$avDid.",".$avProd.",".$avFestoC.",".$avTTSC.",".$avDidC.")";
+		$query2a = "truncate bogendiagramm";
+		$query2b = "insert into bogendiagramm values(".$stamp.",'".$time."','".$festo_today."','".$tts_today."','".$didactic_today."','".$produktion_today."','".$festo_week."','".$tts_week."','".$didactic_week."','".$produktion_week."','".$festo_month."','".$tts_month."','".$didactic_month."','".$produktion_month."')";
+
+		//echo $query2;
+		$res = mysqli_query($mysqli,$query );
+		$res = mysqli_query($mysqli,$query2a );
+		$res = mysqli_query($mysqli,$query2b );
+
+	}
+}
+
+
+?>

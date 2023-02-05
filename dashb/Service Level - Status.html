@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<script src="jquery-2.1.1.js"></script>
+<title>Arc Demo</title>
+<style type="text/css">
+<!--
+
+body {
+	background-color: #4a4d4d;
+	background-repeat:no-repeat;
+}
+
+
+#eingabe{
+	background-color:pink;
+	top:20px;
+	left:40px;
+	position:absolute;
+}
+#myCanvas {
+position:absolute;
+	}
+
+}
+-->
+</style>
+
+</head>
+
+<body background="Background Arcs.png" style="height: 740px; width: 1533px">
+ <div id="eingabe">
+	 Festo&nbsp; 
+	 <input id="feTxt" type="text" size="4" value="97.4" onchange="changeVals()"/>
+	 <br />
+	 TTS&nbsp; 
+	 <input id="ttsTxt" type="text" size="4" value="84.5" onchange="changeVals()" />
+	 <br />
+	 Didactic&nbsp; 
+	 <input id="didTxt" type="text" size="4" value="58.5" onchange="changeVals()"/>
+ </div>
+
+
+    <canvas id="myCanvas" width="600" height="200" top="310" left="110" style="left: 379px; top: 278px"></canvas>
+    <script>
+
+      function changeVals() {
+      var percentage1 = $("#feTxt").val()/100;
+      var degrees1 = (percentage1 * 360.0)-90;
+	  var radians1 = degrees1 * Math.PI / 180.0;
+
+      var percentage2 = $("#ttsTxt").val()/100;
+      var degrees2 = (percentage2 * 360.0)-90;
+	  var radians2 = degrees2 * Math.PI / 180.0;
+
+
+      var percentage3 = $("#didTxt").val()/100;
+      var degrees3 = (percentage3 * 360.0)-90;
+	  var radians3 = degrees3 * Math.PI / 180.0;
+	  
+	  radStart = -90* Math.PI / 180.0;
+
+
+	      var canvas = document.getElementById('myCanvas');
+	      var context = canvas.getContext('2d');
+	      canvas.width = canvas.width;
+	      var centerY = canvas.height / 2;
+	      var radius = 70;
+
+	      
+	      var centerX1 = 110;
+	
+	      context.beginPath();
+	      context.arc(centerX1, centerY, radius, radStart,radians1, false);
+	
+	      context.lineWidth = 40;
+
+	      
+	      if($("#feTxt").val() > 85) 		context.strokeStyle = 'lightblue';
+	      else if($("#feTxt").val() > 80)   context.strokeStyle = 'lightgreen';	  	 
+	      else 							    context.strokeStyle = 'grey';
+	      
+	      context.stroke();
+	      
+	      	      var centerX2 = 300;
+	
+	      context.beginPath();
+	      context.arc(centerX2, centerY, radius, radStart,radians2, false);
+	
+	      context.lineWidth = 35;
+
+	      
+	      if($("#ttsTxt").val() > 85) 		context.strokeStyle = 'lightblue';
+	      else if($("#ttsTxt").val() > 80)   context.strokeStyle = 'lightgreen';	  	 
+	      else 							    context.strokeStyle = 'grey';
+	      
+	      context.stroke();
+
+
+
+	      var centerX3 = 495;
+	
+	      context.beginPath();
+	      context.arc(centerX3, centerY, radius, radStart,radians3, false);
+	
+	      context.lineWidth = 35;
+
+	      
+	      if($("#didTxt").val() > 85) 		context.strokeStyle = 'lightblue';
+	      else if($("#didTxt").val() > 80)   context.strokeStyle = 'lightgreen';	  	 
+	      else 							    context.strokeStyle = 'grey';
+	      
+	      context.stroke();
+
+      }
+      changeVals();
+      
+      
+      
+      
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        changeVals();
+
+     }
+});
+
+    </script>
+ 
+
+</body>
+
+</html>
+

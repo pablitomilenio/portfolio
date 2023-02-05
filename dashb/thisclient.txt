@@ -1,0 +1,7 @@
+
+Tracing route to clt55152.de.festo.net [10.10.38.30]
+over a maximum of 1 hops:
+
+  1    <1 ms    <1 ms    <1 ms  10.11.8.254 
+
+Trace complete.

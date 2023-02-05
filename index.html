@@ -78,7 +78,47 @@ Mit Betaetigung der verschiedenen Buttons koennen Sie gern die entsprechenden Se
     </button>
     <div class="content">
         <p>
-            <b>Buchhaltungssystem Universidad Austral de Chile - Entwicklungszeit 4 Jahre<hr></b><br>
+            <b>FESTO Industrieautomatisierung - Internationales Echtzeit - Dashboard -<br>Entwicklungszeit 3 jahre<hr></b><br>
+            <b>Tech Stack</b><br>
+            Frontend: HTML, JavaScript, CSS, JQuey, Ajax<br>
+            Backend: Ein PHP Server auf Linux mit Apache<br><br>
+            <b>Hintergrund</b>
+            Der Festo Global Service Desk (FGSD) betrieb eine hochwertige Telefonanlage des Herstellers SIEMENS in Esslingen ueber die die Anrufe nach Litauen geroutet 
+            wurden. In Litauen schalteten sich die Informatiker visuell remote auf die Rechner der weltweiten Angestellten auf, um die jeweiligen Stoerungen per Fernwartung
+            mit telefonsicher Begleitung zu beheben. Der FGSD beschaeftigte ein ganzes Team aus Informatikern + Teamlead und Management.<br><br>
+            Die zu erreichende Kennziffer war 85% erfolgreich beantwortete Anrufe innerhalb eines Monats.<br>
+            Da der KPI nur sporadisch erreicht wurde, wurde im Laufe der Jahre ein variables Erfolgsgehalt eingefuehrt, was nur dann zum Grundgehalt hinzugezahlt wurde
+            wenn der KPI >= 85% war.
+            Trotz umfangreicher Massnahmen und Bemuehungen des Managements wurden die KPIs weiterhin unvorhersehbar haeufig verfehlt.
+            Die hochwertige Telefonanlage war dazu in der Lage die Anzahl der Anrufe in Echtzeit anzuzeigen.
+            <br><br><b>Technische Umsetzung</b><br>
+            Auf Anfrage des Teamleads nach Verbesserungsvorschlaegen entwickelte ich dann den Echtzeitbildschirm.
+            Der Systemadministrator stellte mir einen Windows Server mit Zugang zur Telefonanlage zur Verfuegung.
+            Daraufhin war ich in der Lage die Anzahl erfolgreicher und verlorener Anrufe in eine MySQL Datenbank einzulesen und mit einem Zeitstempel zu versehen.
+            Mit Hilfe vom HTML5-2D Canvas war es mir dank meiner Programmierkenntnise moeglich die Daten aus der Datenbank visuell zu plotten.
+            In nativem HTML5, Javascript und PHP (ohne externe visuelle Frameworks) entstand nun ein visuelles Echtzeitsystem was sowohl in Litauen als auch in Esslingen
+            auf Grossbildschirme gespielt wurde. Aufgrund der geographischen Naehe besuchten sowohl die litauischen Informatiker Deutschland, als auch das deutsche Management regelmaessig Litauen.
+            Es wurde zur Gewohnheit, dass das Management sich  jeden Tag und insbesondere am Morgen vor die Echtzeitblidschirme in Esslingen stellte um bildlich zu sehen 
+            was in Litauen mit den Anrufen passierte.<br><br>
+            <b>Endergebnis</b><br>
+            Der Erfolg stellte sich permanent bereits innerhalb des ersten Betriebsmonats des Systems ein. Der KPI von 85% wurde von nun an immer erreicht. 
+            Die Mitarbeiter bekamen immer ihre Erfolgspraemie und das Management hatte das Team saniert.<br><br>
+            Das System lieferte auch genau Aufschluss wo der Flaschenhals war und an welcher Tageszeit warum Telefonate verloren gingen. <br>
+            Weiterhin war man beeindruckt von der so deutlichen Weiterentwicklung der Telefonanlage die als hoechster Stand von SIEMENS galt und der Verwerndung von Programmiertechniken die bis Dato im Konzern noch
+            nie verwendet worden waren. 
+
+
+            
+            <br><br>
+            <button class="boton boton-diff" onclick="window.open('http://www.zamza.cl/contabilidad/', '_blank');">
+                Server mit Echtzeitsystem darstellen
+            </button>
+            <button class="boton boton-diff" onclick="window.open('https://www.festo.com/de/de/', '_blank');">
+                Website von FESTO oeffnen
+            </button><br><br>
+            Unternehmensgroesse FESTO : rund 20 00 Beschaeftigte / rund 3.5 Milliarden EUR Jahresumsatz weltweit
+            <br><br><br><br>
+            <b>Buchhaltungssystem Universidad Austral de Chile <br>Entwicklungszeit 4 Jahre<hr></b><br>
             <b>Tech Stack</b><br>
             Frontend: HTML, JavaScript, CSS, JQuey, Ajax<br>
             Backend: Ein PHP Server auf Linux mit Apache<br><br>
@@ -91,13 +131,16 @@ Mit Betaetigung der verschiedenen Buttons koennen Sie gern die entsprechenden Se
             <button class="boton boton-diff" onclick="window.open('http://www.zamza.cl/contabilidad/', '_blank');">
                 Screenshots vom Buchungssystem
             </button><br><br>
-            Universitaetsgroesse: Fast 20 000 Studenten + alle Angestellten.
+            Universitaetsgroesse: rund 17 000 Studenten + die Beschaeftigten der Universitaet.
         </p>
     </div> 
     <hr>
     <button class="boton" onclick="window.open('/views/lightbox-certs.html', '_blank');">
         Zeugnisse Programmierung
     </button>
+    <button class="boton" onclick="window.open('img/certs/CV - Pablo Escaida nobp.pdf', '_blank');">
+        Vollstaendiger Programmierer-Lebenslauf als PDF
+    </button><br>
     <hr>
     <button class="boton collapsible">
         Programmierung React.js Node.js Express.js MongoDB Vue.js
@@ -146,6 +189,57 @@ Mit Betaetigung der verschiedenen Buttons koennen Sie gern die entsprechenden Se
             </video>
         </p>
     </div> 
+    <hr>
+    <button class="boton collapsible">
+        Cloud-Entwicklung - Kubernetes
+    </button>
+    <div class="content" >
+        <p> 
+            Bei Incentergy betreiben wir einen Kubernetes Cluster auf Amazon EC2 (Elastic Cloud)<br>
+            Als Beispiel habe ich mit meinem privaten Account auch einen Cluster komplett selbst aufgesetzt und einen eigens erstellten Container dort zu Testzwecken betrieben
+            <br>
+            Als Probeumgebung habe ich zusaetzlich Minikube<br>
+            Der Cluster wird mit der Software "Kubernetes Lens" verwaltet
+        </p>
+    </div> 
+    <hr>
+    <button class="boton collapsible">
+        Docker Container
+    </button>
+    <div class="content" >
+        <p> 
+            <a href="https://hub.docker.com/repository/docker/pablitomilenios/fax-foip-fritzbox/general">
+                https://hub.docker.com/repository/docker/pablitomilenios/fax-foip-fritzbox/general
+            </a><br><br>
+            Wie der Link zeigt, betreibe ich zu Entwicklungszwecken bereits mehrfache Container beim Docker Hub
+            <br>
+            Hier ein Beispiel von einer <a href="https://github.com/pablitomilenio/t38-and-iax-containerbase/blob/main/Dockerfile">Dockerfile</a> die ich erstellt habe
+            <br>
+            Und hier ein Beispiel einer <a href="https://github.com/pablitomilenio/t38-and-iax-containerbase/blob/main/Start-Fax-Service/deployment.yaml"> YAML file</a>
+            <br>
+            Zu meinen Faehigkeiten zaehlen die Erstellung eines komplett neuen Containers auf Basis verschiedener Linux Images und Installation einer odere mehrerer
+            Software im Zusammenspiel auf dem Container<br>
+            Die Container entwickle ich gemischt auf Windows mit Docker Desktop, Visual Basic, Docker Command Line, Linux und GitHub
+        </p>
+    </div> 
+    <hr>
+    <button class="boton collapsible">
+        GitHub - Continuous Integration / Continuous Delivery
+    </button>
+    <div class="content" >
+        <p> 
+            <button class="boton boton-diff" onclick="window.open('https://github.com/pablitomilenio', '_blank');">
+                GitHub Repository oeffnen
+            </button><br><br>
+            <img src="/img/gh/activity.png"/><br><br>
+            Ich bin schon seit mehreren Jahren bei GitHub und habe viele Repositories.
+            Normalerweise arbeite ich mit Windows aber innerhalb von Windows entwickle ich in einer Virtuellen Maschine mit Linux
+            (Ubuntu und Debian)<br>
+            Auf Linux installiere ich dann git fuer die Kommandozeile und GitKraken fuer die graphische Handhabung aller Branches.<br>
+            Bei Incentergy arbeiten wir mit Continuous Delivery. Wenn ein Commit zur "main" Branch gemacht wird, geschieht sofort das Deployment zum Kubernetes Cluster
+        </p>
+    </div> 
+
     <hr>
     <br><br><br><br><br><br><br><br>
 </body>

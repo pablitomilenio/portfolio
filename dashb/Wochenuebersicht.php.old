@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Wochenuebersicht</title>
+<style type="text/css">
+body {
+	font-family: MetaPlusLF;
+}
+</style>
+</head>
+
+<body>
+
+<h1><span>Letzte Werktage: </span></h1>
+<br><br><br>
+
+<?php
+
+$loc_de = setlocale (LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
+
+for($d=0;$d<25;$d++) {
+	$wd = date("w", strtotime("-".$d." day 00:00:01"));
+	if ($wd != 0 && $wd !=6 && strtotime("-".$d." day 00:00:01") >= 1413756001) 
+	echo "<a href='/frame/container.php?stamp=".strtotime("-".$d." day 00:00:01")."' >".strftime("%A, %d. %B %Y", strtotime("-".$d." day 00:00:01"))." </a><br><br>\n"; 
+}
+?>
+
+
+</body>
+
+</html>

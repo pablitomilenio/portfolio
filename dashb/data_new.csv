@@ -1,0 +1,23 @@
+Spalte1;Kontakte;Calls;angenommen;verloren;Erreichbarkeit;Callbacks;Erreichbarkeit
+mit Callbacks;Mails;Chats (über Lync);Spalte2;LT;LT Erreichbarkeit;DE;DE Überlauf;AK;AK Überlauf;BH;BH Überlauf
+Festo;56;48;44;4;0,916666666666667;;;8;;;44;0,916666666666667;;;;;;
+Production WRB;0;0;0;0;1;;;0;;;0;1;;;0;1;0;1
+Didactic;0;0;0;0;1;;;0;;;0;1;;;;;;
+TTS;7;7;7;0;1;;;0;;;7;1;;;;;;
+America;0;0;0;0;1;;;0;;;0;1;;;;;;
+VIP;3;3;3;0;1;;;0;;;3;1;;;;;;
+Chat;0;0;0;0;1;;;0;;;0;1;;;;;;
+Rollout;0;0;0;0;1;;;0;;;0;1;;;;;;
+Production WOP;0;0;0;0;1;;;0;;;0;1;;;0;1;0;1
+Summe für Dashboard und Bonus;;58;;;;;;;;;54;0,931034482758621;;;;;;
+Spalte1;Kontakte;Calls;angenommen;verloren;Erreichbarkeit;Callbacks;Erreichbarkeit
+mit Callbacks;Mails;Chats (über Lync);Spalte2;LT;LT Erreichbarkeit;DE;DE Überlauf;AK;AK Überlauf;BH;BH Überlauf
+Festo;56;48;44;4;0,916666666666667;;;8;;;44;0,916666666666667;;;;;0;
+Production WRB;0;0;0;0;1;;;0;;;0;1;;;0;1;0;1
+Didactic;0;0;0;0;1;;;0;;;0;1;;;;;0;
+TTS;7;7;7;0;1;;;0;;;7;1;;;;;0;
+America;12;7;0;7;0;;;5;;;0;0;;;;;0;
+VIP;3;3;3;0;1;;;0;;;3;1;;;;;0;
+Chat;0;0;0;0;1;;;0;;;0;1;;;;;0;
+Rollout;0;0;0;0;1;;;0;;;0;1;;;;;0;
+"Filestamp"

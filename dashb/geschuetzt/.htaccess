@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "                                                                                                                                                                                                                                      Sicherheitsbereich: Authentifizierung erforderlich"
+AuthUserFile "/xampp/apache/.htpasswd"
+Require valid-user

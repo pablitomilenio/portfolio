@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+
+<link rel="stylesheet" type="text/css" href="/Overall.css">
+<link rel="stylesheet" type="text/css" href="/Buttons.css">
+
+<!-- Preload important js libraries for applacations that load later (pre-cache) -->
+<script src="jquery-2.1.1.js"></script>
+<script src="jquery.cookie.js"></script>
+
+
+<link rel="shortcut icon" href="/Final2.ico" type="image/x-icon">
+<link rel="icon" href="/Final2.ico" type="image/x-icon">
+
+
+<title>S T A T I S T I K</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: MetaPlusLF;
+	color: #1B17C0;
+	font-size:30pt;
+}
+.auto-style2 {
+	font-family: MetaPlusLF;
+}
+body {
+	margin-left: 30px;
+	font-family: MetaPlusLF;
+}
+#logoDiv {
+	background-image: url('Logo.png');
+	height: 800px;
+	width: 700px;
+	position: absolute;
+	top: 110px;
+	left: 300px;
+	background-repeat: no-repeat;
+	opacity: 0.1;
+	visibility: hidden;
+}
+.boton{
+font-size:16pt;
+height:50px;
+color:darkblue;
+border-radius:8px;
+padding-left:15px;
+padding-right:15px;
+
+background: #b4e391;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I0ZTM5MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzYxYzQxOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiNGUzOTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #b4e391 0%, #61c419 50%, #b4e391 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#61c419), color-stop(100%,#b4e391));
+background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%);
+background: -o-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%);
+background: -ms-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%);
+background: linear-gradient(to bottom,  #b4e391 0%,#61c419 50%,#b4e391 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 );
+
+}
+
+.boton:hover {
+
+background: #b4e391;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I0ZTM5MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzliYzE3ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiNGUzOTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #b4e391 0%, #9bc17d 50%, #b4e391 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#9bc17d), color-stop(100%,#b4e391));
+background: -webkit-linear-gradient(top,  #b4e391 0%,#9bc17d 50%,#b4e391 100%);
+background: -o-linear-gradient(top,  #b4e391 0%,#9bc17d 50%,#b4e391 100%);
+background: -ms-linear-gradient(top,  #b4e391 0%,#9bc17d 50%,#b4e391 100%);
+background: linear-gradient(to bottom,  #b4e391 0%,#9bc17d 50%,#b4e391 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 );
+}
+
+.inset { text-shadow:#fff 0px 1px 0, #000 0 -1px 0, rgba(0,0,0,0.8) 0 30px 25px;}
+#topright {
+	position: absolute;
+	top: 95px;
+	right: 5px;
+	z-index:5;
+}
+
+.boton2 {
+
+font-size:13pt;
+height:40px;
+color:darkblue;
+border-radius:8px;
+padding-left:15px;
+padding-right:15px;
+border-color:lightblue;
+
+	background: #feffff; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM1JSIgc3RvcC1jb2xvcj0iI2RkZjFmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhMGQ4ZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #feffff 0%, #ddf1f9 35%, #a0d8ef 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffff), color-stop(35%,#ddf1f9), color-stop(100%,#a0d8ef)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#a0d8ef',GradientType=0 ); /* IE6-8 */
+
+}
+
+.additional {
+font-size:16pt;
+height:50px;
+color:darkblue;
+border-radius:8px;
+padding-left:15px;
+padding-right:15px;
+
+}
+
+</style>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  .auto-style3 {
+	color: rgb(109, 107, 107);
+}
+  </style>
+<![endif]-->
+
+
+</head>
+
+<body background="arabesque.jpg" style="background-color: #00FFFF">
+
+
+<h1 class="auto-style1 inset">Anwendungen zur Kennzahlenanalyse und 
+statistischen Auswertung</h1>
+<div id="topleft">
+<p>&nbsp;</p>
+<div style="width:100%;"><div style="float:left; width:25%; display:none;"><br>Hinweis: Sie können das Favoritenicon (favicon) <img src="Final2.ico" width="5%"> oben <br>
+in der Adressleiste wo die Internetadresse steht mit der Maus<br>
+=> An das Startmenü <br>
+=> Auf dem Desktop <br>
+=> Auf der Taskleiste<br>
+anheften (per Drag & Drop)<br>
+Das hat außerdem die Nebenwirkung, dass sich das Aussehen<br>
+und die Farben der IE-Buttons ändern.
+<div style="position:absolute;top:70px;left:10px;"><img src="img/Arrow.png"></div>
+</div><div style="float:left; border-left:2px;"><span class="auto-style2">
+<font size="5">
+
+<input id="completa2" class="boton gradient" onclick="window.open('/Wochenuebersicht.php', '_blank');" type="button" value="Liveticker Erreichbarkeit"></font></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input id="completa2" class="boton2 gradient" onclick="location.href='/Wochenuebersicht_85.php'" type="button" value="Start 85%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="completa2" class="boton2 gradient additional" onclick="location.href='/TopsFlops.php'" type="button" value="Monatliche Rankingliste">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; 
+
+<input id="completa2" class="boton2 gradient" onclick="location.href='/Wochenuebersicht_En.php'" type="button" value="Accurate View">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="completa2" class="boton2 gradient" onclick="location.href='/Enzyklo.php'" type="button" value="Enzyklopädie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><br>
+		
+<input type="button" value="Alte knoepfe" onclick="location.href='oldbtns.php'"><br>
+		<br>Die Authentifizierung mit <strong>Kennwort </strong>ist solange 
+		gültig bis der IE komplett geschlossen wird.
+
+<p><span class="auto-style2">
+<font size="5">
+</p>
+<p><br class="auto-style2"><span class="auto-style2">
+<font size="5">
+<input id="completa3" class="boton gradient" onclick="window.open('http://sdet2125/arcsPage.php', '', 'fullscreen=yes, scrollbars=auto');" type="button" value="Bogendiagramm">&nbsp; 
+<input id="completa4" class="bBlack gradient" onclick="window.open('/monatswaage.php', '', 'fullscreen=yes, scrollbars=auto,width=1920,height=1080');" type="button" value="Monatswaage"> schließen mit ALT_F4 oder ALT_TAB. 
+Reload: F5</font></span></font></p>
+	Dieses Fenster öffnet sich auf dem gleichen Bildschirm auf dem sich der 
+	Internet Explorer auch ursprünglich befand.</div></div>
+</div>
+<p>
+<br><br>
+
+
+<div id="topright" style="display:none"><img src="/img/mse.jpg"></div>
+<br><br><br><br><br><br><br><br><br><br>
+<hr>
+<p style="margin: 0.5em 0px; line-height: 21.2800006866455px; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+Copyright (c) &lt;2014&gt; &lt;MIT License, Massachusetts Institute of 
+Technology&gt;<br></p>
+<p style="margin: 0.5em 0px; line-height: 21.2800006866455px; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<br><span class="auto-style3">Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the &quot;Software&quot;), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of 
+the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:<br><br>The above copyright notice and this 
+permission notice shall be included in all copies or substantial portions of the 
+Software.<br><br>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO 
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.</span></p><hr>
+<font color="#0000FF">
+Diese Software ist ein Beispiel einer Rich Internet Application:<br><br>
+
+=> Das Internet hat begonnen mit verlinktem Text, namentlich Hyperlinks. Daher der Name HTML für die Webseiten-Programmiersprache<br>
+=> Von Html 1.0 mit einfachen Links über Bilder, Buttons und immer mehr Interaktivität sind wir seit 
+Ende 2014 bei der Version HTML-5<br>
+=> HTML-5 ist eine vollwertige Programmierumgebung. Alle Module siehe <a href="http://en.wikipedia.org/wiki/HTML5#/media/File:HTML5_APIs_and_related_technologies_taxonomy_and_status.svg">Wikipedia</a><br>
+=> Eine mit HTML-5 entwickelte Software ist eine Anwendung die zu einem echten Windows Programm inzwischen nahezu gleichwertig ist <br>
+=> Soweit hat sich das Internet nun entwickelt, dass man über eine Internetadresse keine Seite sondern eine vollwertige Anwendung abrufen kann<br>
+=> Der Vorteil liegt darin, dass diese Anwendung von überall auf der Welt in einem modernen Browser (IE, Chrome, Firefox, etc) abrufbar ist, egal wo man sich befindet. 
+Global, ob in Indien, Japan, Litauen oder in Deutschland.<br>=&gt; HTML-5 ist ein 
+offizieller Standard des World Wide Web Consortiums. Dieses Consortium hat Büros 
+in den Haupstädten der Welt. <br>=&gt; Der Standard ist hochoffiziell und wird 
+sowohl im Android als auch im Apple iOS sowie im Windows Browser identisch 
+unterstützt. Es handelt sich also um einen systemübergreifenden, kompatiblen, 
+verbreiteten Standard.<br>
+=&gt; Die Entscheidung liegt nahe, sich in der Zukunft bei Softwareentwicklungen 
+für Festo gern für HTML-5 zu entscheiden.<br>=> Eine HTML-5 Anwendung benötigt keinerlei Zusatzinstallation, kein Java, keine Plugins, keine Installationspakte, keine CD, kein Software Center.<br>
+=&gt; Schulungen in diesem Bereich sind Qualifikationen die auch in ferner Zukunft 
+Gültigkeit behalten werden und sind eine Basis die expandiert und sich weiter 
+entwickelt. Diese Entscheidung ist eine Investition in Zukunftstechnologie.<br><br>
+</font>
+<img src="/HTML5_logo.png" width="7%">
+<font size="5">
+<div id="logoDiv">
+</div>
+<script type="text/javascript">
+    function maxWin() {
+    if( window.innerHeight < screen.height-30) {
+	    //document.getElementById("completa2").msRequestFullscreen();
+        var wscript = new ActiveXObject("Wscript.shell");
+        wscript.SendKeys("{F11}");
+    }    // browser is fullscreen
+}
+
+</script>
+
+
+</body>
+
+</html>

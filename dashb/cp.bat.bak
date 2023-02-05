@@ -1,0 +1,2 @@
+@copy "\\cde44153\c$\Users\de9fgsd\Documents\PADS Dateien\Statistik\all4you.htm" d:\xampp\htdocs\data.html /y
+@rem copy "\\cde44153\c$\Users\de9fgsd\Documents\PADS Dateien\Statistik\all4you.htm" d:\xampp\htdocs\Information\%RANDOM%.html

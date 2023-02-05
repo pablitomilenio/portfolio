@@ -1,0 +1,13 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} /Current_Availability_LT/$
+RewriteRule .* /frame/container.php?sd=1 [L]
+
+RewriteCond %{REQUEST_URI} /Bogendiagramm/$
+RewriteRule .* /arcsPage.php [L]
+
+
+AuthType Basic
+AuthName "Authentication Required"
+AuthUserFile "/xampp/apache/.htpasswd"
+Require valid-user

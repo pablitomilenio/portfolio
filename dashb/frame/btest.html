@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+  <html>
+  <head>
+    <title>Dash line example</title>
+  </head>
+  <body>
+    <canvas id="MyCanvas" width="500" height="400">This browser or document mode doesn't support canvas</canvas> 
+    
+    <script>
+
+     var dashList = [12, 3, 3, 3];  // Create a dot/dash sequence
+     var antOffset = 0;  // Starting offset value
+
+     function draw() {
+       var canvas = document.getElementById("MyCanvas");
+       if (canvas.getContext) {
+         var ctx = canvas.getContext("2d");
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         if (ctx.setLineDash) {
+           //  Assign the dashList for the dash sequence
+           ctx.setLineDash(dashList);
+           //  Get the current offset 
+           ctx.lineDashOffset = antOffset;  // To animate the lines
+           ctx.lineJoin = "round";
+           ctx.lineWidth = "3";
+           ctx.strokeStyle = "blue";
+           ctx.strokeRect(5, 5, 300, 250);
+           ctx.strokeStyle = "red";
+           ctx.strokeRect(150, 200, 300, 150);
+           ctx.lineDashOffset = -antOffset;  // Reverse animation
+           ctx.lineWidth = "7";
+           ctx.strokeStyle = "green";
+           ctx.strokeRect(250, 50, 150, 250);
+         } else {
+           ctx.font = "italic 200 36px/2 Unknown Font, sans-serif";
+           ctx.fillStyle = "blue";
+           ctx.fillText("Dashed lines aren't supported", 10, 100);
+         }
+       }
+     }
+
+     //  Marching Ant code     
+     function doAnts() {
+       antOffset++;    
+       if (antOffset > 20)  // Reset offset after total of dash List values
+         {
+           antOffset = 0;
+         }
+       draw();
+       setTimeout(doAnts, 10);  //  Set a leisurely march of 10ms               
+      }
+      doAnts();  //  Start the demo 
+  </script>
+</body>
+</html>
