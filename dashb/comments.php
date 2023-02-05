@@ -7,8 +7,8 @@
 <title>Comments</title>
 
 
-<script src="/jquery-2.1.1.js"></script>
-<script src="/jquery.cookie.js"></script>
+<script src="./jquery-2.1.1.js"></script>
+<script src="./jquery.cookie.js"></script>
 
 <style>
 .myta{
@@ -40,7 +40,7 @@
 ?>
 
 <body>
-<div style="position:absolute; right:10;top:10;"><img src="../img/Info_black.png" width="130px"></div>
+<div style="position:absolute; right:10;top:10;"><img src="./img/Info_black.png" width="130px"></div>
 <pre>
 Hinweise:
 

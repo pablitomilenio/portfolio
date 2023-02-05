@@ -10,8 +10,8 @@
 
 <title>Monatsverteilung</title>
 
-<script src="/jquery-2.1.1.js"></script>
-<script src="/jquery.cookie.js"></script>
+<script src="./jquery-2.1.1.js"></script>
+<script src="./jquery.cookie.js"></script>
 
 <style>
 .today{
@@ -152,8 +152,8 @@ for($d=$inVal;$d>=($inVal-31*2);$d--) {
 	if ($wd != 0 && $wd !=6 && strtotime("-".$d." day 00:00:01") >= $firstday && strtotime("-".$d." day 00:00:01") <= $lastday && $row["erg"]>0)  {
 
 	    $dateStringB = strftime("%B", strtotime("-".$d." day 00:00:01")).strftime(" %d", strtotime("-".$d." day 00:00:01")).strftime(", %Y", strtotime("-".$d." day 00:00:01"));
-		$linkArr[]  = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('/Liveticker.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
-		$linkArrA[] = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('/LivetickerM.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
+		$linkArr[]  = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('./Liveticker.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
+		$linkArrA[] = "<a class='asize' href='#cn=0' onClick=\"OpenInNewTab('./LivetickerM.php?stamp=".strtotime("-".$d." day 00:00:01")."&sd=1&cn=0"."&name=".$dateStringB."')\" >".strftime("%B", strtotime("-".$d." day 00:00:01"))."<b>".strftime(" %d", strtotime("-".$d." day 00:00:01"))."</b>".strftime(", %Y", strtotime("-".$d." day 00:00:01"))." </a>";
 		$tmArr[] = $rowTM["tm"];
 		$calls[] = $rowCalls["calls"];
 		$dowArr[] = $wd; 
@@ -235,7 +235,7 @@ for($q=0;$q<count($linkArr);$q++) {
 		if($q>=($maxQ-$umbral)) $lineStart[] = "\t<tr style=\"background-color:lightgreen\">";
 	}
 
-	$myRows[] = "<td class='tdm'>".$platz[$q]."</td><td>".$wot[$q]."</td><td>".$linkArrA[$q]."</td><td>".$linkArr[$q]."</td><td class='tdr'><b>".$plusSign.$deltas[$q]." ‰</b></td><td class='tdr'>".$closingVals[$q]."%</td><td class='tdm'>".$calls[$q]."</td><td class='tdm'>".($daynumber[$q]+1)."</td><td class='tdm'><a href='#' onClick='myw = window.open(\"comments.php?stamp=".$stamps[$q]."\",\"Test\",\"width=700, height=680, resizable=yes\")'><img src='/img/".$comm[$q]."' width='25px'></a></td></tr>";
+	$myRows[] = "<td class='tdm'>".$platz[$q]."</td><td>".$wot[$q]."</td><td>".$linkArrA[$q]."</td><td>".$linkArr[$q]."</td><td class='tdr'><b>".$plusSign.$deltas[$q]." ‰</b></td><td class='tdr'>".$closingVals[$q]."%</td><td class='tdm'>".$calls[$q]."</td><td class='tdm'>".($daynumber[$q]+1)."</td><td class='tdm'><a href='#' onClick='myw = window.open(\"comments.php?stamp=".$stamps[$q]."\",\"Test\",\"width=700, height=680, resizable=yes\")'><img src='./img/".$comm[$q]."' width='25px'></a></td></tr>";
 	$tRows[] = $lineStart[$q].$myRows[$q];
 }
 
