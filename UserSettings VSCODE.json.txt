@@ -1,0 +1,119 @@
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "redhat.telemetry.enabled": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.explorerKind": "external",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "[xml]": {
+    "editor.defaultFormatter": "SAPOSS.vscode-ui5-language-assistant"
+  },
+  "git.enableSmartCommit": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "as3mxml.sdk.searchPaths": ["c:\\apache-flex-sdk-4.16.1-bin"],
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "JetBrains Mono, 'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.fontSize": 18,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "afterDelay",
+  "workbench.colorCustomizations": {
+    "textPreformat.foreground": "#ff0000"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "Matrix Color",
+        "scope": ["variable"],
+        "settings": {
+          "foreground": "#00ff2aad" // change this COLOR
+        }
+      },
+      {
+        "name": "Pink",
+        "scope": ["entity.other.attribute-name"],
+        "settings": {
+          "foreground": "#ff00ff" // change this COLOR
+        }
+      },
+      {
+        "name": "white",
+        "scope": ["constant.language"],
+        "settings": {
+          "foreground": "#ffffff" // change this COLOR
+        }
+      },
+      {
+        "name": "gray",
+        "scope": ["punctuation.definition", "meta.brace.round.js"],
+        "settings": {
+          "foreground": "#ffffffe3" // change this COLOR
+        }
+      },
+      {
+        "name": "Pink2",
+        "scope": ["string"],
+        "settings": {
+          "foreground": "#ff00bfce" // change this COLOR
+        }
+      },
+      {
+        "name": "Pink3",
+        "scope": ["keyword.control"],
+        "settings": {
+          "foreground": "#ff0080" // change this COLOR
+        }
+      },
+      {
+        "name": "BrightBlue",
+        "scope": ["storage.type"],
+        "settings": {
+          "foreground": "#00ffea" // change this COLOR
+        }
+      },
+      {
+        "name": "Matrix2",
+        "scope": ["entity.name.function.js"],
+        "settings": {
+          "foreground": "#00ff2b" // change this COLOR
+        }
+      },
+      {
+        "name": "Matrix3",
+        "scope": ["meta.object-literal.key"],
+        "settings": {
+          "foreground": "#09ff0077" // change this COLOR
+        }
+      },
+      {
+        "name": "Matrix3",
+        "scope": ["support.class"],
+        "settings": {
+          "foreground": "#2ebb41", // change this COLOR
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "name": "Matrix4",
+        "scope": ["entity.name.tag"],
+        "settings": {
+          "foreground": "#7bf827e1" // change this COLOR
+        }
+      }
+    ]
+  },
+  "editor.semanticHighlighting.enabled": false,
+  "workbench.colorTheme": "Default High Contrast"
+}
